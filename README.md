@@ -47,6 +47,3 @@ pyinstaller --name "DataVisionPlayer" --onefile --windowed main.py
 Run the app:
 After build completes, navigate to the dist/ folder and run:
 ./dist/DataVisionPlayer.exe
-
-## 🛠️ Run the Application without Build
-Go to dist/DataVisionPlayer.exe and double click on it
