@@ -1,5 +1,4 @@
-from player import VideoPlayer, VideoControls
-from UI import UIComponents
+from player import VideoPlayer
 import sys
 from PyQt5.QtWidgets import QApplication
 

@@ -1,14 +1,11 @@
 from PyQt5.QtWidgets import QPushButton, QLabel, QVBoxLayout, QHBoxLayout, QListWidget, QWidget, QSlider
-from PyQt5.QtCore import Qt, QTimer
+from PyQt5.QtCore import Qt
 
 class UIComponents:
     def __init__(self, player):
         self.player = player
         central_widget = QWidget(player)
         player.setCentralWidget(central_widget)
-
-        #print("Checking if player has controller:", hasattr(player, "controller"))
-        #print("Checking if controller has choose_video:", hasattr(player.controller, "choose_video"))
 
         # Video display
         self.video_display = QLabel("Video Display")
@@ -39,8 +36,6 @@ class UIComponents:
         self.right_label = QListWidget()
         self.right_label.setSelectionMode(QListWidget.MultiSelection)
         self.right_label.setFixedWidth(300)  # Fixed initial width
-        options = ['E2E_SeqCounter_OBJ', 'uiMsgCounter_OBJ', 'uiID_OBJ', 'uiMergeID_OBJ', 'eMaintenanceState_OBJ', 'fArelYStd_OBJ', 'fArelY_OBJ']
-        self.right_label.addItems(options)
         self.plot_btn = QPushButton("Plot", player)
 
         # Layout setup
@@ -59,6 +54,7 @@ class UIComponents:
         speed_layout.addWidget(self.speed_label)
 
         data_layout = QVBoxLayout()
+        data_layout.addWidget(QLabel("Data Selection:"))
         data_layout.addWidget(self.right_label)
         data_layout.addWidget(self.plot_btn)
         
@@ -80,3 +76,4 @@ class UIComponents:
         self.prev_btn.clicked.connect(player.controller.prev_frame)
         self.play_btn.clicked.connect(player.controller.play_video)
         self.next_btn.clicked.connect(player.controller.next_frame)
+        self.plot_btn.clicked.connect(player.controller.plot_graph)

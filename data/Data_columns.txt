@@ -1,1 +1,0 @@
-uiID_OBJ, fDistY_OBJ
